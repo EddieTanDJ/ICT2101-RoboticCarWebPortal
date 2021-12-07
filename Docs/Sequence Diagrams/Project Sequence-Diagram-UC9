@@ -1,0 +1,61 @@
+@startuml
+actor Kid
+participant "//<<boundary>>//\n**DashboardUI**" as a
+participant "//<<control>>//\n**FeedbackManagement**" as A
+participant "//<<control>>//\n**WebCommunicationManagement**" as B
+participant "//<<control>>//\n**CarCommunicationManagement**" as C
+participant "//<<control>>//\n**RoboticCarManagement**" as D
+participant "//<<entity>>//\n**CarFeedback**" as E
+
+Kid-> a: View Feedback of Robotic Car
+activate a #FFBBBB
+
+a -> A: displayFeedback()
+activate A #FFBBBB
+
+alt Successful connection between Web Portal and Robotic Car
+A -> B: getFeedback(feedback)
+activate B #FFBBBB
+
+B -> C: receiveFeedback()
+activate C #FFBBBB
+
+C -> D:isConnectedtoWeb()
+activate D #FFBBBB
+D--> C: Success()
+
+C -> D: sendFeedback(sensorData, errorMessage)
+
+D -> E: gatherFeedback(sensorData, errorrMessage)
+activate E #FFBBBB
+
+E --> D:Success()
+deactivate E
+
+D --> C: Success()
+deactivate D
+
+C --> B: Success()
+deactivate C
+
+B --> A: Success()
+
+
+A -> a: Success()
+
+
+a -> Kid: DisplayFeedback()
+
+else Failed connection between web portal and robotic car
+A -> B: getFeedback(feedback)
+B --> A: failure()
+deactivate B
+
+A --> a: failure()
+deactivate A
+
+a -> Kid: "Connection Unsuccessful"
+deactivate a
+
+end
+@enduml

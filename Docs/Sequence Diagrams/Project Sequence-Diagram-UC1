@@ -1,0 +1,46 @@
+@startuml
+actor Kid
+participant "//<<boundary>>// \n **QueueUI**" as A
+participant "//<<control>>//\n**QueueManagement**" as B
+participant "//<<entity>>//\n**Queue**" as C
+database "**Database**" as db
+
+Kid -> A:add action
+activate A #FFBBBB
+
+A -> B: addtoQueue()
+activate B #FFBBBB
+
+alt Success in Adding Action to Queue
+B -> C: updateQueue()
+activate C #FFBBBB
+
+C -> db: saveQueue()
+activate db #FFBBBB
+
+db --> C: Success()
+deactivate db
+
+C --> B: Success()
+deactivate C
+
+B --> A: Success()
+deactivate B 
+
+A -> Kid: "Addition Successful"
+deactivate A
+
+else Failure in Adding Action to Queue
+Kid -> A:add action
+activate A #FFBBBB
+
+A -> B: AddtoQueue()
+activate B #FFBBBB
+
+B --> A: Failure()
+deactivate B
+
+A -> Kid: "Addition Unsuccessful"
+deactivate A
+end
+@enduml

@@ -1,0 +1,210 @@
+{% extends "layouts/base.html" %} {% block title %} Play {% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/Play.css" />
+{% endblock stylesheets %} {% block content %}
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ first row of play page ] start -->
+        <div class="row">
+            <!-- [ game map section ] start -->
+            <div class="col-lg-12 col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Game Map</h5>
+                        <span class="d-block m-t-5">Navigation of Car</span>
+                        <form class="input-group" action="/retrieveGameMap" method="POST">
+                            <select id="mid" name="mid" class="custom-select" id="inputGroupSelect04">
+                                <option selected>Choose Game Map...</option>
+                                <option value="1">Easy</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Hard</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Choose</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="canvas" class="card-body"></div>
+                </div>
+            </div>
+            <!-- [ game map section ] end -->
+            <!-- [ queue commands section ] start -->
+
+            <div class="col-md-6">
+                <div class="card" style="height:500px;">
+                    <div class="card-header">
+                        <h5>Queue Commands</h5>
+                    </div>
+                    <div class="card-body table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table table-bordered table-striped mb-0" style="height:310px;" id="tableCommands">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Step Number</th>
+                                    <th scope="col">Command</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <button type="button" class="control btn btn-icon btn-primary float-right" id="submitQueue"
+                            data-toggle="modal" data-target="#submitModal">Submit</button>
+                        <button type="button" class="control btn btn-icon btn-warning float-right" id="deleteQueue"
+                            data-toggle="modal" data-target="#deleteModal">Delete</button>
+                        <button type="button" class="control btn btn-icon btn-danger float-right" id="deleteAllQueue"
+                            data-toggle="modal" data-target="#deleteAllModal">Delete All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ queue commands section ] end -->
+        <!-- [ first row of play page ] end -->
+
+        <!-- [ second row of play page ] start -->
+        <div class="row">
+            <!-- [ controls section ] start -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Controls</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="flex-container">
+                            <div>
+                                <button type="button" class="control btn btn-primary" id="stop">Force Stop</button>
+                                <button type="button" class="control btn btn-primary" id="stars">When <i
+                                        class="fas fa-star"></i> on black tiles</button>
+                                <button type="button" class="control btn btn-primary" id="black_tiles">When on black
+                                    tiles</button>
+                            </div>
+                        </div>
+                        <button type="button" class="rotate control btn btn-icon btn-primary wid-55 hei-55" id="rotate">
+                            <i class="fa fa-undo fa-2x"></i>
+                        </button>
+                        <button type="button" class="up control btn btn-icon btn-primary wid-55 hei-55" id="up">
+                            <i class="fa fa-arrow-up fa-2x"></i>
+                        </button>
+                        <br>
+                        <button type="button" class="left control btn btn-icon btn-primary wid-55 hei-55" id="left">
+                            <i class="fa fa-arrow-left fa-2x"></i>
+                        </button>
+                        <button type="button" class="down control btn btn-icon btn-primary wid-55 hei-55" id="down">
+                            <i class="fa fa-arrow-down fa-2x"></i>
+                        </button>
+                        <button type="button" class="right control btn btn-icon btn-primary wid-55 hei-55" id="right">
+                            <i class="fa fa-arrow-right fa-2x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- [ controls section ] end -->
+            <!-- [ Robo car status section ] start -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Your Robo Car Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="flex-container">
+                            <!-- illustration -->
+                            <div>
+                                <i class="fas fa-car-side fa-3x" style="font-size: 3em; color: #449cfc;"></i>
+                                <canvas id="rightRect" width="35" height="45">Your browser does not support the HTML5
+                                    canvas tag.</canvas>
+                                <canvas id="bottomRect" width="60" height="35" style=" display: block;">Your browser
+                                    does not support the HTML5 canvas tag.</canvas>
+                            </div>
+
+                            <!-- status information -->
+                            <div class="status">
+                                <p>Current Movement:
+                                    <span id="Movement"></span>
+                                </p>
+                                <p>Speed (cm/s): </p>
+                                <p>Total distance travelled (cm): </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Robo car status section ] end -->
+    </div>
+    <!-- [ second row of play page ] end -->
+    </div>
+
+    <!-- [ verification modal ] start -->
+    <div id="deleteAllModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteAllModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteAllModal">Confirm Delete All Commands?</h5>
+                </div>
+                <div class="modal-body">
+                    <p>You cannot undo this process.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn  btn-secondary" data-dismiss="modal"
+                        id="cfmCancelDeleteAll">Cancel</button>
+                    <button type="button" class="btn  btn-primary" id="cfmSubmitDeleteAll"
+                        data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModal">Confirm Delete The Selected Commands?</h5>
+                </div>
+                <div class="modal-body">
+                    <p>You cannot undo this process.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn  btn-secondary" data-dismiss="modal"
+                        id="cfmCancelDelete">Cancel</button>
+                    <button type="button" class="btn  btn-primary" id="cfmSubmitDelete"
+                        data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="submitModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="submitModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="submitModal">Confirm Submit Queue?</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Ready.. Set.. Go?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn  btn-secondary" data-dismiss="modal" id="cfmCancelSubmit">Not
+                        Yet!</button>
+                    <button type="button" class="btn  btn-primary" id="cfmSubmit" data-dismiss="modal">Let's
+                        Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- [ verification modal ] end -->
+</section>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<!-- google-map Js -->
+<script
+    src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="/static/assets/js/pages/play.js"></script>
+
+{% endblock javascripts %}

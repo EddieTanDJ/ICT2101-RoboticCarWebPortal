@@ -1,0 +1,24 @@
+@startuml DetectObstacles
+
+participant "Ultrasonic Sensor" as A
+participant "//<<control>>//\nObstacleDetection" as B
+participant "//<<control>>//\nMovementManagement" as C
+participant "//<<control>>//\nRoboticCarManagement" as D
+participant "//<<entity>>//\nCarFeedback" as F
+
+A -> B: Detects Obstacle
+activate B #FFBBBB
+B -> C: obstacleDetected()
+deactivate B 
+activate C #FFBBBB
+C -> D: stop()
+activate D #FFBBBB
+D --> C: success()
+deactivate C
+D -> F: gatherFeedback()
+activate F #FFBBBB
+F --> D: success()
+deactivate D 
+deactivate F 
+@enduml
+

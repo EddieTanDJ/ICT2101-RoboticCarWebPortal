@@ -1,0 +1,30 @@
+@startuml DetectBT3
+
+participant "WebPortal" as WebPortal
+participant "//<<Control>>//\nCarCommunicationManagement" as RoboticCarManagement
+participant "//<<Control>>//\nMovementManagement" as B
+participant "//<<Entity>>//\nMotor" as C
+actor "Robotic Car" as RC
+
+WebPortal -> RoboticCarManagement: sendQueue()
+activate RoboticCarManagement #FFBBBB
+RoboticCarManagement -> B : recieveQueue()
+activate B #FFBBBB
+B -> C: getCommands()
+activate C #FFBBBB
+C --> B: Success()
+B-> C : adjustPWM(PWM)
+C -> RC : "Car able to move"
+C --> B : Success()
+B -> C: turn(direction)
+C -> RC : "Car able to turn"
+C --> B : Success()
+
+deactivate C
+B --> RoboticCarManagement: Success()
+deactivate B
+deactivate WebPortal
+RoboticCarManagement -> WebPortal : "Queue command executed successfully"
+deactivate RoboticCarManagement
+
+@enduml

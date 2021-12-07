@@ -1,0 +1,66 @@
+@startuml
+actor "Robotic Car" as Car << Car>>
+
+rectangle "Robotic Car Management" {
+    usecase UC1 as "Detect Obstacle" 
+    usecase UC2 as "Detect black tile"
+    usecase UC3 as "Send Feedback
+    --
+    Extension point\nObstacle and black tile detection"
+
+    usecase UC4 as "Send Status
+    --
+    Extension point\nChange of speed"
+
+    usecase UC5 as "Stop"
+
+    usecase UC6 as "Receive Queue Commands"
+
+    usecase UC8 as "Receive Force Stop Command
+    --
+    Extension point\nForce stop button is pressed"
+
+    usecase UC9 as "Read sensor data"
+
+    usecase CM2 as "Move"
+
+    usecase CM3 as "Move Forward
+    --
+    Extension point\nDepending on the next action of the queue"
+
+    usecase CM4 as "Move Backward
+    --
+    Extension point\nDepending on the next action of the queue"
+
+    usecase CM5 as "Move Left
+    --
+    Extension point\nDepending on the next action of the queue"
+
+    usecase CM6 as "Move Right
+    --
+    Extension point\nDepending on the next action of the queue"
+
+}
+
+    Car -- UC2
+    Car -- CM2
+    Car -- UC5
+
+
+    UC6 <.. CM2 : <<include>>
+    UC9 <.. UC1 : <<include>>
+    UC9 <.. UC2 : <<include>>
+
+    UC1 ..> UC3 : <<extend>>
+    UC2 ..> UC3 : <<extend>>
+    UC1 <.. UC5 : <<extend>>
+
+    CM2 ..> CM3 : <<extend>>
+    CM2 ..> CM4 : <<extend>>
+    CM2 ..> CM5 : <<extend>>
+    CM2 ..> CM6 : <<extend>>
+
+    CM2 ..> UC4 : <<extend>>
+    UC5 ..> UC4 : <<extend>>
+    UC5 ..> UC8 : <<extend>>
+@enduml

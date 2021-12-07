@@ -1,0 +1,31 @@
+@startuml
+
+actor Kid
+participant "//<<Boundary>>//\n**QueueUI**" as A
+participant "//<<Control>>//\n**QueueManagement**" as B
+participant "//<<Entity>>//\n**Queue**" as C
+database database
+
+
+Kid-> A: ViewQueue
+activate A #FFBBBB
+
+A -> B: getQueue()
+activate B #FFBBBB
+
+B -> C: getMoveCommand()
+activate C #FFBBBB
+C -> database: RetrieveQueue()
+activate database #FFBBBB
+database --> C: Success()
+deactivate database #FFBBBB
+C --> B: Success()
+deactivate C
+
+B --> A: Success()
+deactivate B 
+
+A -> Kid: "Queue Displayed Successfully"
+deactivate A
+
+@enduml

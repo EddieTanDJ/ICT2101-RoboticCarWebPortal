@@ -1,0 +1,42 @@
+@startuml DetectWT2
+
+actor RoboticCar
+participant "//<<control>>//\nWebCommunicationManagement" as A
+participant "//<<control>>//\nFeedbackManagement" as B
+participant "//<<entity>>//\nDashboard" as C
+database Database
+
+alt Successful transmission of Feedback between Web Portal and Robotic Car
+
+RoboticCar-> A:Sends Robotic Car Feedback information
+activate A #FFBBBB
+
+A -> B: sendFeedback()
+activate B #FFBBBB
+
+B -> C: receiveFeedback()
+activate C #FFBBBB
+
+C -> Database: getFeedback(feedback)
+activate Database #FFBBBB
+
+Database--> C: Success()
+deactivate Database
+ 
+C --> B: Success()
+deactivate C
+B --> A: Success()
+deactivate B
+
+A -> RoboticCar: Success()
+
+else Failed due to connection failure between web portal and robotic car
+
+RoboticCar-> A:Sends Robotic Car Feedback information
+A -> RoboticCar: Failure()
+deactivate A
+
+
+end
+@enduml
+

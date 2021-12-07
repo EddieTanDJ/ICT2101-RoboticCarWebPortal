@@ -1,0 +1,179 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<!-- JQuery links  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ Robo car status section ] start -->
+            <div class="col-md-6 col-xl-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Your Robo Car Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="flex-container">
+                            <!-- illustration -->
+                            <div>
+                                <i class="fas fa-car-side fa-3x" style="font-size: 3em; color: #449cfc;"></i>
+                                <canvas id="rightRect" width="35" height="45">Your browser does not support the HTML5
+                                    canvas tag.</canvas>
+                                <canvas id="bottomRect" width="60" height="35" style=" display: block;">Your browser
+                                    does not support the HTML5 canvas tag.</canvas>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ Robo car status section ] end -->
+                <!-- order-card start -->
+                <div class="card bg-c-red order-card">
+                    <div class="card-body">
+                        <h6 class="text-white">Current Movement </h6>
+                        <h2 class="text-right text-white"><i class="fas fa-car-alt float-left"></i><span>
+                                <span id="Movement"></span>
+                            </span></h2>
+                    </div>
+                </div>
+                <div class="card bg-c-purple order-card">
+                    <div class="card-body">
+                        <h6 class="text-white">Speed</h6>
+                        <h2 class="text-right text-white"><i class="fas fa-tachometer-alt float-left"></i><span>
+                                <h4 class="sensor2">Sensor :</h4>
+                            </span></h2>
+                        <span class="float-right">cm/s</span></p>
+                    </div>
+                </div>
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-body">
+                        <h6 class="text-white">Total Distance Travelled</h6>
+                        <h2 class="text-right text-white"><i class="fas fa-road float-left"></i><span>
+                                <h4 class="sensor2"></h4>
+                            </span></h2>
+                        <span class="float-right">cm</span>
+                    </div>
+                </div>
+            </div>
+            <!-- order-card end -->
+            <!-- account-section start -->
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Car Feedback</h5>
+                        <div class="card-header-right">
+                            <div class="btn-group card-option">
+                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item full-card"><a href="#!"><span><i
+                                                    class="feather icon-maximize"></i> maximize</span><span
+                                                style="display:none"><i class="feather icon-minimize"></i>
+                                                Restore</span></a></li>
+                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i
+                                                    class="feather icon-minus"></i> collapse</span><span
+                                                style="display:none"><i class="feather icon-plus"></i> expand</span></a>
+                                    </li>
+                                    <li class="dropdown-item reload-card"><a href="#!"><i
+                                                class="feather icon-refresh-cw"></i> reload</a></li>
+                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
+                                            remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="feed-blog pl-0">
+                            <li class="active-feed ">
+                                <div class="feed-user-img">
+                                    <img src="\static\assets\images\robocar.jpg" class="img-radius "
+                                        alt="Robo-Car-Image">
+                                </div>
+                                <h6><span class="badge badge-success">Obstacle</span> Robo Car detected an obstacle.
+                                    <small class="text-muted"> 2 minutes ago</small>
+                                </h6>
+                            </li>
+                            <li class="diactive-feed">
+                                <div class="feed-user-img">
+                                    <img src="\static\assets\images\robocar.jpg" class="img-radius "
+                                        alt="Robo-Car-Image">
+                                </div>
+                                <h6><span class="badge badge-primary">Black Tile</span> Robo Car detected black tile.
+                                    <small class="text-muted">3 minutes ago</small>
+                                </h6>
+                            </li>
+                            <li class="diactive-feed">
+                                <div class="feed-user-img">
+                                    <img src="\static\assets\images\robocar.jpg" class="img-radius "
+                                        alt="Robo-Car-Image">
+                                </div>
+                                <h6><span class="badge badge-success">Obstacle</span> Robo Car detected an obstacle.
+                                    <small class="text-muted"> 3 minutes ago</small>
+                                </h6>
+                            </li>
+                            <li class="diactive-feed">
+                                <div class="feed-user-img">
+                                    <img src="\static\assets\images\robocar.jpg" class="img-radius "
+                                        alt="Robo-Car-Image">
+                                </div>
+                                <h6><span class="badge badge-primary">Black Tile</span> Robo Car detected black tile.
+                                    <small class="text-muted"> 5 minutes ago</small>
+                                </h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- account-section end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+    function requestData() {
+        // Ajax call to get the Data from Flask
+        var requests = $.get('/testdata');
+
+        var tm = requests.done(function (result) {
+            // Add the Point
+            // Time carmovement
+            var data1 = [];
+            data1.push(result[0]);
+            data1.push(result[1]);
+
+            // Add the Point
+            // Time speed
+            var data2 = [];
+            data2.push(result[0]);
+            data2.push(result[2]);
+
+            $(".sensor1").text("");
+            $(".sensor1").text(data1[1]);
+
+            $(".sensor2").text("");
+            $(".sensor2").text(Math.round(data2[1]));
+
+            // call it again after one second
+            setTimeout(requestData, 10000);
+        });
+    }
+
+    requestData()
+</script>
+<!-- Apex Chart -->
+<script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+<!-- custom-chart js -->
+<script src="/static/assets/js/pages/dashboard-main.js"></script>
+<script src="/static/assets/js/pages/play.js"></script>
+{% endblock javascripts %}

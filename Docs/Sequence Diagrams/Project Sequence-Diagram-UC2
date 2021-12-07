@@ -1,0 +1,47 @@
+@startuml
+actor Kid
+participant "//<<boundary>>// \n **QueueUI**" as A
+participant "//<<control>>//\n**QueueManagement**" as B
+participant "//<<entity>>//\n**Queue**" as C
+database "**Database**" as db
+
+Kid -> A:Delete action
+activate A #FFBBBB
+
+A -> B: deleteFromQueue()
+activate B #FFBBBB
+
+alt Success in Deleting Action from Queue
+B -> C: updateQueue()
+activate C #FFBBBB
+
+C -> db: saveQueue() 
+activate db #FFBBBB
+
+db --> C: Success()
+deactivate db
+
+C --> B: Success()
+deactivate C
+
+B --> A: Success()
+deactivate B 
+
+A -> Kid: "Deletion Successful"
+deactivate A
+
+else Failure in Deleting Action from Queue
+Kid -> A:Delete action
+activate A #FFBBBB
+
+A -> B: deleteFromQueue()
+activate B #FFBBBB
+
+B --> A: Failure()
+deactivate B
+
+A -> Kid: "Deletion Unsuccessful" 
+deactivate A
+end
+
+@enduml

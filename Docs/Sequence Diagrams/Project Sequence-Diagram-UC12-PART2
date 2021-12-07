@@ -1,0 +1,42 @@
+@startuml DetectObstacles2
+
+actor "**RoboticCar**" as RoboticCar
+participant "//<<control>>//\n**WebCommunicationManagement**" as A
+participant "//<<control>>//\n**FeedbackManagement**" as B
+participant "//<<entity>>//\n**Dashboard**" as C
+database "**Database**" as Database
+
+alt Successful transmission of Feedback between Web Portal and Robotic Car
+
+RoboticCar-> A:Sends Robotic Car Feedback information
+activate A #FFBBBB
+
+A -> B: sendFeedback()
+activate B #FFBBBB
+
+B -> C: receiveFeedback()
+activate C #FFBBBB
+
+C -> Database: getFeedback(feedback)
+activate Database #FFBBBB
+
+Database--> C: Success()
+deactivate Database
+ 
+C --> B: Success()
+deactivate C
+B --> A: Success()
+deactivate B
+
+A -> RoboticCar: Success()
+
+else Failed due to connection failure between web portal and robotic car
+
+RoboticCar-> A:Sends Robotic Car Feedback information
+A -> RoboticCar: Failure()
+deactivate A
+
+
+end
+@enduml
+

@@ -1,0 +1,23 @@
+@startuml DetectBT
+
+participant "**IRLineTrackerModule**" as A
+participant "//<<control>>//\n**BlackTilesDetection**" as B
+participant "//<<control>>//\n**RoboticCarManagement**" as C
+participant "//<<entity>>//\n**CarFeedback**" as D
+
+A -> B: Detects Black Tiles
+activate B #FFBBBB
+B -> C: getContrast()
+activate C #FFBBBB
+C --> B: success()
+deactivate B
+C -> D: gatherFeedback
+activate D #FFBBBB
+D --> C: success()
+deactivate D 
+deactivate C 
+
+
+@enduml
+
+

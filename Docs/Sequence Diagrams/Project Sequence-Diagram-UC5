@@ -1,0 +1,53 @@
+@startuml
+
+participant "**WebPortal**" as WebPortal
+participant "//<<Control>>//\n**CarCommunicationManagement**" as RoboticCarManagement
+participant "//<<Control>>//\n**MovementManagement**" as B
+participant "//<<Entity>>//\n**Motor**" as C
+actor "Robotic Car" as RC
+
+WebPortal -> RoboticCarManagement: sendQueue()
+activate RoboticCarManagement #FFBBBB
+RoboticCarManagement -> B : recieveQueue()
+activate B #FFBBBB
+B -> C: getCommands()
+activate C #FFBBBB
+C --> B: Success()
+B-> C : adjustPWM(PWM)
+C -> RC : "Car able to move"
+C --> B : Success()
+B -> C: turn(direction)
+C -> RC : "Car able to turn"
+C --> B : Success()
+
+deactivate C
+B --> RoboticCarManagement: Success()
+deactivate B
+deactivate WebPortal
+RoboticCarManagement -> WebPortal : "Queue command executed successfully"
+deactivate RoboticCarManagement
+
+alt car unable to move
+WebPortal -> RoboticCarManagement: Recieve queue commands
+activate RoboticCarManagement #FFBBBB
+RoboticCarManagement -> B : recieveQueue()
+activate B #FFBBBB
+B -> C: getCommands()
+activate C #FFBBBB
+C --> B: failure()
+B --> RoboticCarManagement : failure()
+B-> C : adjustPWM(PWM)
+C -> RC : "Car unable to move"
+C --> B : failure()
+B --> RoboticCarManagement : failure()
+B -> C: turn(direction)
+C -> RC : "Car unable to turn"
+C --> B : failure()
+deactivate C
+B --> RoboticCarManagement : failure()
+deactivate B
+deactivate WebPortal
+RoboticCarManagement -> WebPortal : "Queue command executed unsuccessfully"
+deactivate RoboticCarManagement
+end
+@enduml

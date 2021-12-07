@@ -1,0 +1,57 @@
+@startuml
+actor "Kid" as kid << Human>>
+actor "Robotic Car" as Car << Robotic Car>>
+/' actor "Robotic Car" as Car2 << Robotic Car>> '/
+
+rectangle "Web Portal" {
+    usecase "Display Feedback" as UC2
+    usecase "View Game Map" as UC3
+    usecase "View Dashboard" as UC4
+    usecase "Display Status" as UC23
+    usecase "View Queue" as UC5
+    usecase "Add action to queue" as UC8
+    usecase "Delete action from queue" as UC9
+    usecase "Submit queue" as UC10  
+}
+
+rectangle "Robotic_Car_Management" {
+    usecase UC16 as "Detect Obstacle" 
+    usecase UC20 as "Detect black tile"
+    usecase UC21 as "Detect white tile"
+
+    usecase UC22 as "Send Feedback
+    --
+    **Extension point**\nObstacle and black/white tile detection"
+    usecase UC24 as "Send Status
+    --
+    **Extension point**\nChange of speed"
+    usecase "Move" as MV
+    usecase UC19 as "Stop"
+}
+
+
+    kid -- UC4
+    kid -- UC3
+    
+    kid -- UC5
+    kid -- UC8
+    kid -- UC9
+    kid -- UC10
+
+    Car -- UC16
+    Car -- UC20
+    Car -- UC21
+    Car -- MV
+    Car -- UC19
+
+    UC16 ..> UC22 : <<extend>>
+    UC20 ..> UC22 : <<extend>>
+    UC21 ..> UC22 : <<extend>>
+    MV ..> UC24 : <<extend>>
+    UC19 ..> UC24 : <<extend>>
+    UC4 ..> UC2 : <<include>>
+    UC4 ..> UC23 : <<include>>
+
+
+
+@enduml

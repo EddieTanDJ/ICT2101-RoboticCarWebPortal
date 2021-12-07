@@ -1,0 +1,78 @@
+@startuml
+actor RoboticCar
+actor Kid
+participant "//<<control>>// \n **GameMapManagement**" as A
+participant "//<<control>>//\n**RoboticCarManagement**" as B
+participant "//<<control>>//\n**CarCommunicationManagement**" as C
+participant "//<<control>>//\n**WebCommunicationManagement**" as D
+participant "//<<control>>//\n**FeedbackManagement**" as E
+participant "//<<control>>//\n**StatusManagement**" as F
+participant "//<<entity>>//\n**GameMap**" as G
+participant "//<<entity>>//\n**Dashboard**" as H
+database Database 
+
+Kid -> A: View game map
+activate A #FFBBBB
+
+A -> G: getId()
+activate G #FFBBBB
+
+G -> Database: Retrieve Game Map
+activate Database #FFBBBB
+
+Database --> G: Success()
+deactivate Database
+
+G --> A: Success()
+deactivate G 
+    
+A --> Kid: Success()
+deactivate A
+
+RoboticCar -> B: Send robotic car movement
+activate B #FFBBBB
+
+alt Successful connection between web portal and robotic car
+B -> C: gatherStatus
+activate C #FFBBBB 
+
+C -> D: receiveStatus()
+activate D #FFBBBB
+
+D -> F: getStatus()
+activate F #FFBBBB
+
+F -> H: getStatus()
+activate H #FFBBBB
+
+H -> Database: Store Status
+activate Database #FFBBBB
+
+Database --> H: Success()
+deactivate Database
+
+H --> F: Success()
+
+F --> D: Success()
+deactivate F
+
+D --> C: Success()
+
+C --> B: Success()
+
+B --> RoboticCar: Success()
+
+else Failed connection between web portal and robotic car
+B -> C: gatherStatus
+deactivate B #FFBBBB
+
+C -> D: receiveStatus()
+
+D --> C: failure()
+deactivate D
+
+C -> H: Display error message
+deactivate H
+
+end
+@enduml

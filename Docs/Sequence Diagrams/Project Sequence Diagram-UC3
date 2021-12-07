@@ -1,0 +1,71 @@
+@startuml
+actor Kid
+participant "//<<Boundary>>// \n **QueueUI**" as A
+participant "//<<Control>>//\n**QueueManagement**" as B
+participant "//<<Control>>//\n**WebCommunicationManagement**" as C
+participant "//<<Control>>// \n **CarCommunicationManagement**" as D
+participant "//<<Control>>// \n **MovementManagement**" as E
+participant "//<<Entity>>// \n **Motor**" as M
+
+
+Kid -> A:submit Queue
+activate A #FFBBBB
+
+A -> B: submitQueue()
+activate B #FFBBBB
+
+alt Successful Connection to Robotic Car 
+B -> C: submitQueue()
+activate C #FFBBBB
+
+C -> D: sendQueue()
+activate D #FFBBBB
+
+D -> E: forwardQueue()
+activate E #FFBBBB
+
+E -> M: new Motor()
+activate M #FFBBBB
+
+M --> E: Success()
+deactivate M
+
+E --> D: Success()
+deactivate E
+
+D --> C: Success()
+deactivate D
+
+C --> B: Success()
+deactivate C
+
+B --> A: Success()
+deactivate B 
+    
+A -> Kid: "Submission Successful"
+deactivate A
+
+else Failed Connection to Robotic Car 
+Kid -> A:submit Queue
+activate A #FFBBBB
+
+A -> B: SubmitQueue()
+activate B #FFBBBB
+
+B -> C: sendQueue()
+activate C #FFBBBB
+
+C --> B: failure()
+deactivate C
+
+B --> A: failure()
+deactivate B
+
+A -> Kid: "Submission Unsuccessful"
+deactivate A 
+end
+
+
+
+
+@enduml
