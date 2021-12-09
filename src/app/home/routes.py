@@ -90,6 +90,11 @@ def submitQueue():
             return "Fail to submit queue commands"
     return "Fail"
 
+'''
+This function is used to get the queue from the database, dequeue it and return it to the client to execute it for the virtual map
+Input: None
+Output: String of commands
+'''
 @blueprint.route('/api/commands/dequeue', methods=["GET", "POST"])
 def dequeue():
     if request.method == "GET":
@@ -115,7 +120,38 @@ def dequeue():
             # return render_template('page-500.html'), 500
             return "No commands in queue" + '\0'
     return "Fail"
-  
+
+'''
+This function is used to get the queue from the database, dequeue it and return it to the client to execute it for the car
+Input: None
+Output
+'''
+@blueprint.route('/api/commands/dequeueCar', methods=["GET", "POST"])
+def dequeueCar():
+    if request.method == "GET":
+        # Establish database Connection
+        try:
+            conn = sqlite3.connect('Database.db')
+            c = conn.cursor()
+        except:
+            return "Fail to connect to database"
+        try:
+            #Get the queue from AJAX GET request
+            c.execute("SELECT commands FROM QueueCar ORDER BY QueueID ASC LIMIT 1")
+            data = c.fetchone()
+            print(data)
+            if (data):
+                #Remove the first element from the queue
+                c.execute("DELETE FROM QueueCar WHERE QueueID = (SELECT QueueID FROM QueueCar ORDER BY QueueID ASC LIMIT 1)")
+            conn.commit()
+            conn.close()
+            return data[0][0] + ''
+        except:
+            # flash("No commands in queue")
+            # return render_template('page-500.html'), 500
+            return "No commands in queue" + '\0'
+    return "Fail"
+
 @blueprint.route('/api/commands/getFirstCommands', methods=["GET", "POST"])
 def getFirstCommand():
     if request.method == "GET":
@@ -125,11 +161,11 @@ def getFirstCommand():
         c = conn.cursor()
         try:
             #Get the queue from AJAX GET request
-            c.execute("SELECT commands FROM Queue ORDER BY QueueID ASC LIMIT 1")
+            c.execute("SELECT commands FROM QueueCar ORDER BY QueueID ASC LIMIT 1")
             data = c.fetchone()
             conn.close()
             #Indicate end of string
-            return "Commands:" + data[0][0] + '\0'
+            return data[0][0] + '\0'
         except:
             # flash("No commands in queue")
             # return render_template('page-500.html'), 500
@@ -221,7 +257,27 @@ def recieveData():
                 c.execute("INSERT INTO Feedback(Data) VALUES (?)", (feedback,))
                 conn.commit()
                 conn.close()
-                return "Successfuly insert feedback"
+                if (feedback ==  "obstacle" or feedback == "blackobstacle"): 
+                    try:
+                        # Establish database Connection
+                        conn = sqlite3.connect('Database.db')
+                        c = conn.cursor()
+                    except:
+                        return "Fail to connect to database"
+                    try:
+                        #Get the queue from AJAX GET request
+                        c.execute("DELETE FROM Queue")
+                        c.execute("DELETE FROM QueueCar")
+                        conn.commit()
+                        conn.close()
+                        return "Success"
+                    except:
+                        # flash("No commands in queue")
+                        # return render_template('page-500.html'), 500
+                        return "No commands in queue" + '\0'
+                commands = dequeueCar()
+                print(commands)
+                return commands
             except:
                 return "Fail to store feedback into database"
         else:

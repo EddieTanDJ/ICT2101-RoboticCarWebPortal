@@ -298,8 +298,8 @@ function display() {
     rightRect.stroke();
   } else {
     // display filled rectangle
-    rightRect.clearRect(10, 0, 12, 24);
-    rightRect.fillRect(10, 0, 12, 24);
+    rightRect.clearRect(20, 0, 12, 44);
+    rightRect.fillRect(20, 0, 12, 44);
   }
 }
 
