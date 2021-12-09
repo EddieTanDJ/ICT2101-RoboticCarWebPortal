@@ -132,3 +132,9 @@ src/.env.example
 
 
 venv/
+
+#Code Composer Studio
+Robot Car/ProjectFINAL/Release/*
+Robot Car/ProjectFINAL/.xdchelp
+Robot Car/ProjectFINAL/config/*
+Robot Car/ProjectFINAL/.launches/*
