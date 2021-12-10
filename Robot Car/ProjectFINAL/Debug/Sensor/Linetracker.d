@@ -55,7 +55,7 @@ Sensor/Linetracker.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devic
 Sensor/Linetracker.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h
 Sensor/Linetracker.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h
 Sensor/Linetracker.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
-Sensor/Linetracker.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h
+Sensor/Linetracker.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h
 
 ../Sensor/Linetracker.c:
 
@@ -167,5 +167,5 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h:
 

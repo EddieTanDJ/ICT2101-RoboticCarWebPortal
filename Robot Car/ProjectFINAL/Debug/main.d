@@ -55,19 +55,19 @@ main.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/
 main.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h
 main.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h
 main.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/string.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/encoder.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/encoder.h
 main.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/Ultrasonic.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/init_Ultrasonic.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/Linetracker.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Wifi/Wifi.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/CS_Driver.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/ESP8266.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/Ultrasonic.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/init_Ultrasonic.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/Linetracker.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Wifi/Wifi.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/CS_Driver.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/ESP8266.h
 main.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/MSPIO.h
-main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/MSPIO.h
+main.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h
 main.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h
 
 ../main.c:
@@ -180,31 +180,31 @@ C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/string.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/encoder.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/encoder.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/Ultrasonic.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/Ultrasonic.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/init_Ultrasonic.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/init_Ultrasonic.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/Linetracker.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/Linetracker.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Wifi/Wifi.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Wifi/Wifi.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/CS_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/CS_Driver.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/ESP8266.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/ESP8266.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/MSPIO.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/MSPIO.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h:
 

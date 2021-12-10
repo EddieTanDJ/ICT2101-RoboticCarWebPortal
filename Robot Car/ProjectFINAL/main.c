@@ -56,6 +56,9 @@ uint32_t countTrigger = 0;
 uint32_t pulseTrigger = 0;
 uint32_t speedL = 5000;
 uint32_t speedR = 5000;
+float speed = 0;
+float totalDistance = 0;
+
 float leftPIDOutput;
 float rightPIDOutput;
 uint32_t pulseCountL = 0;
@@ -109,12 +112,12 @@ char* commands_buffer;
 
 
 char* request() {
-    char http_req_sendtest[] = "GET http://172.18.16.175/api/data/feedback?feedback=%s\r\n\r\n";
-    int feedback = 5;
-    // wherer to append to first argument
-    sprintf(http_req_sendtest, http_req_sendtest, feedback);
+    char http_req_sendtest[] = "GET http://172.18.16.175/api/data/feedback?speed=%.2f\r\n\r\n";
+    // append to append to first argument
+    sprintf(http_req_sendtest, http_req_sendtest, speed);
     return http_req_sendtest;
 }
+
 
 uint32_t main(void)
  {
@@ -135,9 +138,10 @@ uint32_t main(void)
     MAP_CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_24);
     Initalise_HCSR04_New();
     Initalise_Enconder();
-//    startTimer();
+    startTimer();
     Initalise_Motor();
-//    stop();
+    char http_req_speeddistance[100] = request();
+    printf("%s", http_req_speeddistance);
 
 
     Interrupt_enableMaster();

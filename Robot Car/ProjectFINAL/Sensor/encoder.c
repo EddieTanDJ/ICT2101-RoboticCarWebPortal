@@ -30,6 +30,10 @@ extern uint32_t pulseCountL;
 extern uint32_t pulseCountR;
 extern bool isTurning;
 
+// For speed and Distance
+extern float speed;
+extern float totalDistance;
+
 /* Timer_A UpMode Configuration Parameter to count the time*/
 const Timer_A_UpModeConfig samplePeriodforSpeed =
 {
@@ -179,5 +183,10 @@ void TA3_0_IRQHandler(void)
     // printf("Time: %d\n", time);
     // printf("Left Speed: %.2f\n", leftspeed);
     // printf("Right Speed: %.2f\n", rightspeed);
+    speed = (leftspeed + rightspeed) / 2;
+    printf("Speed: %.2f\n", speed);
+    totalDistance = (leftcountrotation + rightcountrotation) / 2;
+    printf("Distance: %.2f\n", totalDistance);
+
     Timer_A_clearCaptureCompareInterrupt(TIMER_A3_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_0);
 }

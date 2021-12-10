@@ -7,7 +7,7 @@ Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/_ti_config.h
 Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/linkage.h
 Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/sys/cdefs.h
 Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h
-Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h
+Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom_map.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h
@@ -28,15 +28,15 @@ Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/cmsis_ccs.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/mpu_armv7.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/system_msp432p401r.h
-Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/MSPIO.h
+Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/MSPIO.h
 Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h
 Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h
-Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h
+Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/interrupt.h
 Devices/ESP8266.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdbool.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/uart.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/eusci.h
-Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h
+Devices/ESP8266.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
 Devices/ESP8266.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/aes256.h
@@ -76,7 +76,7 @@ C:/ti/ti-cgt-arm_20.2.4.LTS/include/sys/cdefs.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom.h:
 
@@ -118,13 +118,13 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/mpu_ar
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/system_msp432p401r.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/MSPIO.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/MSPIO.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/interrupt.h:
 
@@ -134,7 +134,7 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/eusci.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h:
 

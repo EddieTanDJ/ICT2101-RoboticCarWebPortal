@@ -29,7 +29,7 @@ Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/dev
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/uart.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/eusci.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h
-Hardware/UART_Driver.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h
+Hardware/UART_Driver.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/aes256.h
@@ -54,7 +54,7 @@ Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/dev
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h
 Hardware/UART_Driver.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
-Hardware/UART_Driver.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h
+Hardware/UART_Driver.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h
 
 ../Hardware/UART_Driver.c:
 
@@ -114,7 +114,7 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h:
 
@@ -164,5 +164,5 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h:
 

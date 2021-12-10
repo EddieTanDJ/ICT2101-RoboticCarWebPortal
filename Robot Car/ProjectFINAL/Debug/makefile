@@ -152,34 +152,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-ProjectV8.out \
+ProjectFINAL.out \
 
 EXE_OUTPUTS__QUOTED += \
-"ProjectV8.out" \
+"ProjectFINAL.out" \
 
 BIN_OUTPUTS += \
-ProjectV8.hex \
+ProjectFINAL.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"ProjectV8.hex" \
+"ProjectFINAL.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "ProjectV8.out"
+	@$(MAKE) --no-print-directory -Onone "ProjectFINAL.out"
 
 # Tool invocations
-ProjectV8.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+ProjectFINAL.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"C:/ti/ti-cgt-arm_20.2.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=none --define=__MSP432P401R__ --define=DeviceFamily_MSP432P401x -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on -z -m"ProjectV8.map" --stack_size=512 -i"C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source" -i"C:/ti/ti-cgt-arm_20.2.4.LTS/lib" --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ProjectV8_linkInfo.xml" --rom_model -o "ProjectV8.out" $(ORDERED_OBJS)
+	"C:/ti/ti-cgt-arm_20.2.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=none --define=__MSP432P401R__ --define=DeviceFamily_MSP432P401x -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on -z -m"ProjectFINAL.map" --stack_size=512 -i"C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source" -i"C:/ti/ti-cgt-arm_20.2.4.LTS/lib" --diag_wrap=off --display_error_number --warn_sections --xml_link_info="ProjectFINAL_linkInfo.xml" --rom_model -o "ProjectFINAL.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-ProjectV8.hex: $(EXE_OUTPUTS)
+ProjectFINAL.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: Arm Hex Utility'
-	"C:/ti/ti-cgt-arm_20.2.4.LTS/bin/armhex" --diag_wrap=off -o "ProjectV8.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ti-cgt-arm_20.2.4.LTS/bin/armhex" --diag_wrap=off -o "ProjectFINAL.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 

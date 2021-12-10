@@ -9,7 +9,7 @@ Devices/MSPIO.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h
 Devices/MSPIO.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/sys/_types.h
 Devices/MSPIO.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/sys/cdefs.h
 Devices/MSPIO.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/machine/_types.h
-Devices/MSPIO.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h
+Devices/MSPIO.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom_map.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/interrupt.h
@@ -32,7 +32,7 @@ Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/ms
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/uart.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/eusci.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h
-Devices/MSPIO.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h
+Devices/MSPIO.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
 Devices/MSPIO.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/aes256.h
@@ -76,7 +76,7 @@ C:/ti/ti-cgt-arm_20.2.4.LTS/include/sys/cdefs.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/machine/_types.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom.h:
 
@@ -122,7 +122,7 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h:
 

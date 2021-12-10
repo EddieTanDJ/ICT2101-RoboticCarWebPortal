@@ -1,8 +1,8 @@
 # FIXED
 
 Wifi/Wifi.obj: ../Wifi/Wifi.c
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Wifi/wifi.h
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/CS_Driver.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Wifi/wifi.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/CS_Driver.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/cs.h
 Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdint.h
 Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/_ti_config.h
@@ -27,21 +27,21 @@ Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/system_msp432p401r.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/pcm.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/ESP8266.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/ESP8266.h
 Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/string.h
 Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom_map.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/MSPIO.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/MSPIO.h
 Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h
 Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/interrupt.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/uart.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/eusci.h
-Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h
+Wifi/Wifi.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
 Wifi/Wifi.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/aes256.h
@@ -67,9 +67,9 @@ Wifi/Wifi.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h
 
 ../Wifi/Wifi.c:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Wifi/wifi.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Wifi/wifi.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/CS_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/CS_Driver.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/cs.h:
 
@@ -119,13 +119,13 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/ESP8266.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/ESP8266.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/string.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdlib.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/GPIO_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/GPIO_Driver.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/rom.h:
 
@@ -133,13 +133,13 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/gpio.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Devices/MSPIO.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Devices/MSPIO.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdarg.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Hardware/UART_Driver.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Hardware/UART_Driver.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/interrupt.h:
 
@@ -147,7 +147,7 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/eusci.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/Motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/Motor.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h:
 

@@ -1,7 +1,7 @@
 # FIXED
 
 Sensor/encoder.obj: ../Sensor/encoder.c
-Sensor/encoder.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/encoder.h
+Sensor/encoder.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/encoder.h
 Sensor/encoder.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h
 Sensor/encoder.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/_ti_config.h
 Sensor/encoder.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/linkage.h
@@ -56,11 +56,11 @@ Sensor/encoder.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/m
 Sensor/encoder.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h
 Sensor/encoder.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h
 Sensor/encoder.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
-Sensor/encoder.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/motor.h
+Sensor/encoder.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/motor.h
 
 ../Sensor/encoder.c:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/encoder.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/encoder.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h:
 
@@ -170,5 +170,5 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Motor/motor.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Motor/motor.h:
 

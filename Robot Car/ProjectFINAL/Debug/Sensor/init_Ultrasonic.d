@@ -1,7 +1,7 @@
 # FIXED
 
 Sensor/init_Ultrasonic.obj: ../Sensor/init_Ultrasonic.c
-Sensor/init_Ultrasonic.obj: C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/init_Ultrasonic.h
+Sensor/init_Ultrasonic.obj: C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/init_Ultrasonic.h
 Sensor/init_Ultrasonic.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h
 Sensor/init_Ultrasonic.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/_ti_config.h
 Sensor/init_Ultrasonic.obj: C:/ti/ti-cgt-arm_20.2.4.LTS/include/linkage.h
@@ -58,7 +58,7 @@ Sensor/init_Ultrasonic.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/d
 
 ../Sensor/init_Ultrasonic.c:
 
-C:/Users/Eddie/Documents/ICT2104/ProjectV8/Sensor/init_Ultrasonic.h:
+C:/Users/Eddie/Documents/ICT2104/ProjectFINAL/Sensor/init_Ultrasonic.h:
 
 C:/ti/ti-cgt-arm_20.2.4.LTS/include/stdio.h:
 
