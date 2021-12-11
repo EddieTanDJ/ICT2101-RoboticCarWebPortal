@@ -80,7 +80,7 @@ extern bool obstacle;
         start_pulse = 1;
         distance = detectObstacle();
         if (distance > 1 && distance  < 15) {
-//            printf("Obstacle Detected!\n");
+           GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN2);
             stop();
             obstacle = true;
         }

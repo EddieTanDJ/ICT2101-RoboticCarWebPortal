@@ -186,7 +186,7 @@ void initiate_wifi()
         // Green color means the WIFI is connected
         GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN2);
         GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN1);
-        GPIO_toggleOutputOnPin(GPIO_PORT_P2, GPIO_PIN0);
+        GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN0);
         while (1)
         {
             if (ESP8266_EnableMultipleConnections(true))

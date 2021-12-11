@@ -40,6 +40,11 @@
  * 2. Right Encoder
  * 3. Right Line Tracker
  * 
+ * LED
+ * 1.0 - DETECT BLACK TILES
+ * 2.0 - FAIL TO CONNECT TO WEBPORTAL (RED)
+ * 2.1 - CONNECT TO WEBPORTAL (GREEN)
+ * 2.2 - DETECT OBSTACLE (BLUE)
  * Author: Eddie
 *******************************************************************************/
 /* DriverLib Includes */
@@ -54,7 +59,6 @@ uint32_t PWML = 15000;
 uint32_t PWMR = 15000;
 uint32_t grid_pulse_left = 0;
 uint32_t grid_pulse_right = 0;
-//float distance = 0;
 uint32_t countTrigger = 0;
 uint32_t pulseTrigger = 0;
 uint32_t speedL = 5000;
@@ -62,6 +66,7 @@ uint32_t speedR = 5000;
 float speed = 0;
 float totalDistance = 0;
 
+// For the PID controller
 float leftPIDOutput;
 float rightPIDOutput;
 uint32_t pulseCountL = 0;
@@ -97,10 +102,7 @@ uint32_t http_req_size_getallcommands = sizeof(http_req_getallcommands) - 1;
 // For commands
 char* commands_buffer;
 
-// For PID Stuff
 
-
-//float dist = 0;
 /* Standard Includes */
 #include <stdint.h>
 #include <stdbool.h>
@@ -175,6 +177,7 @@ uint32_t main(void)
             obstacle = false;
             blackTiles = false;
             GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN0);
+            GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN1);
             // Clear InterruptFlag on P6.4 AND P6.5
              MAP_GPIO_clearInterruptFlag(GPIO_PORT_P6, GPIO_PIN4);
              MAP_GPIO_clearInterruptFlag(GPIO_PORT_P6, GPIO_PIN5);
@@ -188,6 +191,7 @@ uint32_t main(void)
             setup_connection();
             Delay(100000);
             get_api(http_req_feedback_obstacle, http_req_size_feedback_obstacle);
+            GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN1);
             Delay(100000);
             obstacle = false;
         }
@@ -208,6 +212,7 @@ uint32_t main(void)
             __delay_cycles(24000000);
             blackTiles = false;
             GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN0);
+            GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN1);
             // Clear InterruptFlag on P6.4 AND P6.5
              MAP_GPIO_clearInterruptFlag(GPIO_PORT_P6, GPIO_PIN4);
              MAP_GPIO_clearInterruptFlag(GPIO_PORT_P6, GPIO_PIN5);
