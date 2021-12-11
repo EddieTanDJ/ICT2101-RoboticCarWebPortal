@@ -110,6 +110,7 @@ env/
 ENV/
 env.bak/
 venv.bak/
+venv/*
 venv/
 
 # Spyder project settings
@@ -131,8 +132,6 @@ dmypy.json
 .pyre/
 src/.env.example
 
-
-venv/
 
 #Code Composer Studio
 Robot Car/ProjectFINAL/Release/*
