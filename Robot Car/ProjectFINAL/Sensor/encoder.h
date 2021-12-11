@@ -23,10 +23,6 @@ volatile static int currentCount = 0;
 volatile static double sum = 0;
 volatile static double remaingleftdistance = 0;
 volatile static double remaingrightdistance = 0;
-// volatile static int kp = 0.02;
-// volatile static float Kd = 0.01;
-// volatile static float Ki = 0.05;
-
 
 
 

@@ -19,6 +19,7 @@
 #include <Sensor/encoder.h>
 #include <Motor/motor.h>
 
+//  Global Variables
 extern uint32_t PWML;
 extern uint32_t PWMR;
 extern uint32_t leftcount;
@@ -44,11 +45,13 @@ const Timer_A_UpModeConfig samplePeriodforSpeed =
         TIMER_A_DO_CLEAR                    // Clear value
 };
 
+/*
+*   Function: Initalise encoder
+*   Input: None
+*   Output: None
+*/
 void Initalise_Enconder(void)
 {
-    // Check Clock speed for Aclk clock
-//    int b = CS_getACLK();
-//    printf("%d\n",b);
     // Left Enconder for P5.0
     MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P5, GPIO_PIN0);
     // Select the edge to trigger the interrupt from high to low transition
@@ -78,6 +81,11 @@ void Initalise_Enconder(void)
     printf("\n\rTimer A3 configured for Up Mode\n\r");
 }
 
+/*
+*   PORT5 Interrupt Service Routine
+*   Input: None
+*   Output: None
+*/
 void PORT5_IRQHandler(void)
 {
     uint32_t status1;
@@ -99,17 +107,9 @@ void PORT5_IRQHandler(void)
         pulseCountR = pulseCountL;
     }
 
-    // if ( pulseCountL == pulseCountTrigger ) {
-
-    //     pulseCountL = 0;
-    //     pulseCountR = 0;
-    // }
-
-
     if (leftcountrotation == 20)
     {
         leftdistance += 22;
-       // printf("Left Distance: %d\n", leftdistance);
         leftcountrotation = 0;
     }
 
@@ -129,7 +129,6 @@ void PORT5_IRQHandler(void)
     if (rightcountrotation == 20)
     {
         rightdistance += 22;
-        //printf("Right Distance: %d\n", rightdistance);
         rightcountrotation = 0;
     }
 
@@ -138,9 +137,13 @@ void PORT5_IRQHandler(void)
     MAP_GPIO_clearInterruptFlag(GPIO_PORT_P5, status2);
 }
 
+/*
+* Function: Start the timer when the motor is moving
+* Input: None
+* Output: None
+*/
 void startTimer ()
 {
-//    printf("Timer Started!");
     MAP_Timer_A_clearCaptureCompareInterrupt(TIMER_A3_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_0);
     MAP_Timer_A_enableCaptureCompareInterrupt(TIMER_A3_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_0);
     MAP_Timer_A_startCounter(TIMER_A3_BASE, TIMER_A_UP_MODE);
@@ -148,7 +151,11 @@ void startTimer ()
     rightcount = 0;
 
 }
-
+/*
+* Function: Stop the timer when the motor is not moving
+* Input: None
+* Output: None
+*/
 void stopTimer()
 {
     volatile static double decimal = 0;
@@ -157,12 +164,10 @@ void stopTimer()
     decimal = decimal * 10; // Multiply by 10 to get the decimal for tenth of second
     sum = time + decimal;
 
-    // printf("Timer stop at %.2f secs\n", sum);
     Timer_A_disableCaptureCompareInterrupt(TIMER_A3_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_0);
-    // remaingleftdistance = (double) leftdistance + (double)((leftcountrotation / 20)*22);
-    // remaingrightdistance = (double) rightdistance + (double)((rightcountrotation / 20)*22);
-    // printf("Left Distance transversed: %.2f cm\n", remaingleftdistance);
-    // printf("Right Distance transversed: %.2f cm\n", remaingrightdistance);
+    // Get the remaining distance
+    remaingleftdistance = (double) leftdistance + (double)((leftcountrotation / 20)*22);
+    remaingrightdistance = (double) rightdistance + (double)((rightcountrotation / 20)*22);
     time = 0;
     leftdistance = 0;
     rightdistance = 0;
@@ -172,20 +177,21 @@ void stopTimer()
     Timer_A_clearTimer(TIMER_A3_BASE);
 }
 
+/*
+* Function: Timer A3 Interrupt Service Routine
+* Input: None
+* Output: None
+*/
 void TA3_0_IRQHandler(void)
 {
     time+=10;
+    // Get the speed for both wheel
     leftspeed = (double)leftdistance / (double)time;
     rightspeed = (double)rightdistance / (double)time;
-    // printf("Left Distance: %d\n", leftcountrotation);
-    // printf("Right Distance: %d\n", rightcountrotation);
-    // printf("Time: %d\n", time);
-    // printf("Left Speed: %.2f\n", leftspeed);
-    // printf("Right Speed: %.2f\n", rightspeed);
     speed = (leftspeed + rightspeed) / 2;
     printf("Speed: %.2f\n", speed);
+    // Get the total distance travelled
     totalDistance = (leftcountrotation + rightcountrotation) / 2;
     printf("Distance: %.2f\n", totalDistance);
-
     Timer_A_clearCaptureCompareInterrupt(TIMER_A3_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_0);
 }

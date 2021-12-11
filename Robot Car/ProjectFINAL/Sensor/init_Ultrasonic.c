@@ -20,7 +20,7 @@
  *******************************************************************************/
 
 #include <Sensor/init_Ultrasonic.h>
-
+// Timer_A to generate 10us ultrasonic trigger signal
 const Timer_A_ContinuousModeConfig contmConfig =
 {
         TIMER_A_CLOCKSOURCE_SMCLK,              // SMCLK Clock Source
@@ -28,7 +28,7 @@ const Timer_A_ContinuousModeConfig contmConfig =
         TIMER_A_TAIE_INTERRUPT_DISABLE,         // Disable Timer interrupt
         TIMER_A_DO_CLEAR                        // Clear value
 };
-
+// Timer_A to generate the 10us ultrasonic trigger signal every 0.5 second 
 const Timer_A_CompareModeConfig CCR3Config =
 {
         TIMER_A_CAPTURECOMPARE_REGISTER_3,       //CCR3 ( TIMER_A2 + CCR3 => [P6.6] )
@@ -37,8 +37,12 @@ const Timer_A_CompareModeConfig CCR3Config =
         0x4000//0xFFFE for very slow
 };
 
-
-
+/*
+* Function: init_Ultrasonic
+* Description: Initalise ultrasonic
+* Inputs: None
+* Outputs: None
+*/
 void Initalise_HCSR04_New(void) {
 
     /* Configure P6.6 to output timer TA2.3 (secondary module function, output)*/
@@ -59,5 +63,4 @@ void Initalise_HCSR04_New(void) {
     GPIO_enableInterrupt(GPIO_PORT_P3, GPIO_PIN0);
     GPIO_interruptEdgeSelect(GPIO_PORT_P3, GPIO_PIN0, GPIO_LOW_TO_HIGH_TRANSITION);
     Interrupt_enableInterrupt(INT_PORT3);
-    printf("Ultrasonic initalised\n");
 }

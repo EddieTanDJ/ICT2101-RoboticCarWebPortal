@@ -18,9 +18,16 @@
 *******************************************************************************/
 #include "Linetracker.h"
 #include <Motor/Motor.h>
+// Global Variables
 extern blackTiles;
 extern bool isTurning;
 extern uint32_t leftcount;
+/*
+ * Function: initLineTracker
+ * Description: Initialize the line tracker module.
+ * Inputs: None
+ * Outputs: None
+ */
 void init_line_tracker(void)
  {
    // Set P2.0 / 2.1 as output pin
@@ -43,11 +50,13 @@ void init_line_tracker(void)
    MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN1);
    // Enable interrupts globally for PORT6.0
    MAP_Interrupt_enableInterrupt(INT_PORT6);
-   // Enable master interrupt
-   // MAP_Interrupt_enableMaster();
 }
-
-/* Need to change line tracker  ISR */
+/*
+ * Function: PORT6 Interrupt Handler
+ * Description: Interrupt Service Routine for line tracker.
+ * Inputs: None
+ * Outputs: None
+ */
 void PORT6_IRQHandler(void)
 {
 
