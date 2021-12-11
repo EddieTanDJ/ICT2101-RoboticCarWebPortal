@@ -1,4 +1,3 @@
-
 /******************************************************************************
  * ICT 2104 Robotic Car
  *
@@ -13,14 +12,17 @@
  *            |            P3.6  | -> Trigger Ultrasonic Sensor
  *            |            P3.7  | <- Echo Ultrasonic Sensor
  *            |            P2.4  | >- Right Motor
- *
  *            |            P2.5  | >- Left Motor
- *            |            P2.6  | >- Right Motor
+ *            |            P3.2  | >- WIFI Tx
+ *            |            P3.3  | <- WIFI Rx 
+ *            |    P1.3/UCA0TXD  | -> PC
+ *            |    P1.2/UCA0RXD  | <- PC
+ *             ------------------
  * 
  * PORT1_IRQHandler() - Button interrupt handler
  * PORT3_IRQHandler() - Ultrasonic interrupt handler
- * PORT4_IRQHandler() - Line tracker interrupt handler
  * PORT5_IRQHandler() - Encoder interrupt handler
+ * PORT6_IRQHandler() - Line tracker interrupt handler
  * 
  * SPLITTER
  * BLUE - GROUND
@@ -38,6 +40,7 @@
  * 2. Right Encoder
  * 3. Right Line Tracker
  * 
+ * Author: Eddie
 *******************************************************************************/
 /* DriverLib Includes */
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>

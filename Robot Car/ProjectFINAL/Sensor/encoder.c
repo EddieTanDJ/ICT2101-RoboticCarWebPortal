@@ -13,9 +13,8 @@
  *            |                  |
  *
  *
- * MUST PUT THIS DEFINITION IN PROJECT
+ * Author: Eddie
  ******************************************************************************/
-
 
 #include <Sensor/encoder.h>
 #include <Motor/motor.h>

@@ -2,7 +2,7 @@
 // * wifi.h
 // *
 // *  Created on: 27 Nov 2021
-// *      Author: Eddie
+// *      Author: Joey
 // */
 //
 #ifndef WIFI_WIFI_H_
@@ -16,9 +16,9 @@
 
 
 // Configure your WIFI ssid, password and http webpage, port here
-#define SSID            "SINGTEL-81A6"
-#define PASSWORD        "0016482726"
-#define HTTP_WEBPAGE  "192.168.1.75"
+#define SSID            "ssid"
+#define PASSWORD        "password"
+#define HTTP_WEBPAGE  "172.30.139.190"
 #define PORT          "5000"
 
 #define BUFFER_SIZE 100

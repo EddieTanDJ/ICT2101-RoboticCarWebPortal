@@ -14,7 +14,7 @@
 *            |                  |
 *            |                  |
 *            |                  |
-* Author:
+* Author: Eddie
 *******************************************************************************/
 #include "Linetracker.h"
 #include <Motor/Motor.h>
@@ -59,8 +59,7 @@ void PORT6_IRQHandler(void)
       if (status2 |= GPIO_PIN5) {
           // Toggle the LED
           GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
-          printf("Black Tiles Detected\n");
-          __delay_cycles(24000000);
+          // printf("Black Tiles Detected\n");
           __delay_cycles(24000000);
           stop();
           blackTiles = true;

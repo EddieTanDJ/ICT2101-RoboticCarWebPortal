@@ -1,5 +1,5 @@
 /*
- * Ultrasonic.h
+ * Encoder.h
  *
  *  Created on: 23 Oct 2021
  *      Author: Eddie

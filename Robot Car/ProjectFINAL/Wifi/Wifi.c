@@ -30,40 +30,21 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * --/COPYRIGHT--*/
 /******************************************************************************
- * MSP432 Empty Project
- *
- * Description: An empty project that uses DriverLib
+ * Description: A ESP8266 module that serves as a communication module .
  *
  *                MSP432P401
  *             ------------------
  *         /|\|                  |
  *          | |                  |
- *          --|RST               |
+ *          --|RST          P3.2 |-> Wifi Tx
+ *            |             P3.3 |<- Wifi Rx
+ *            |     P1.3/UCA0TXD |-> PC
+ *            |     P1.2/UCA0RXD |<- PC
  *            |                  |
  *            |                  |
- *            |                  |
- *            |                  |
- *            |                  |
- * Author:
+ * Author: Joey
  *******************************************************************************/
 #include "Wifi/wifi.h"
-extern char *commands_buffer;
-
-////  Data that will be sent to the HTTP server.
-////  This will allow us to query car commands.
-//char http_req_getfirstcommand[] =
-//        "GET /api/commands/getFirstCommands HTTP/1.1\r\n\r\n";
-//char http_req_dequeue[] = "GET /api/commands/dequeue HTTP/1.1\r\n\r\n";
-//char http_req_sendtest[] =
-//        "GET /api/data/feedback?feedback=Hello HTTP/1.1\r\n\r\n";
-//char http_req_getallcommands[] =
-//        "GET /api/commands/getAllCommands HTTP/1.1\r\n\r\n";
-//
-///*Subtract one to take account for the null character*/
-//uint32_t http_req_size_getfirstcommand = sizeof(http_req_getfirstcommand) - 1;
-//uint32_t http_req_size_dequeue = sizeof(http_req_dequeue) - 1;
-//uint32_t http_req_size_sendtest = sizeof(http_req_sendtest) - 1;
-//uint32_t http_req_size_getallcommands = sizeof(http_req_getallcommands) - 1;
 
 eUSCI_UART_ConfigV1 UART0Config = {
         EUSCI_A_UART_CLOCKSOURCE_SMCLK, 13, 0, 37,
@@ -89,7 +70,7 @@ void Delay(uint32_t loop)
 
 void setup_connection()
 {
-    /*Try to establish TCP connection to a HTTP server*/
+    // Try to establish TCP connection to a HTTP server
     if (!ESP8266_EstablishConnection('0', TCP, HTTP_WEBPAGE, PORT))
     {
         MSPrintf(EUSCI_A0_BASE, "Failed to connect to: %s\r\nERROR: %s\r\n",
@@ -107,7 +88,7 @@ void setup_connection()
             Delay(100000);
         };
     }
-    // Successfully connected to web portal
+    // Indication that the robotic car is successfully connected to web portal
     GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN2);
     GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN0);
     GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN1);
@@ -116,14 +97,14 @@ void setup_connection()
 
 void get_api(char *api, uint32_t buffer_size)
 {
-    /*Query data to connected HTTP server, look for an API and request a key*/
+    //  Query data to connected HTTP server, look for an API and request a key
     if (!ESP8266_SendData('0', api, buffer_size))
     {
         MSPrintf(EUSCI_A0_BASE,
                  "Failed to send: %s to %s \r\n\r\nError: %s\r\n\r\n", api,
                  HTTP_WEBPAGE,
                  ESP8266_Data);
-        //MSPrintf(EUSCI_A0_BASE, "Please retry establishing connection.");
+        //  MSPrintf(EUSCI_A0_BASE, "Please retry establishing connection.");
         while (1)
         {
             if (ESP8266_SendData('0', api, buffer_size))
@@ -140,10 +121,10 @@ void get_api(char *api, uint32_t buffer_size)
 
 void initiate_wifi()
 {
-    /*Ensure MSP432 is Running at 24 MHz*/
+    // Ensure MSP432 is Running at 24 MHz
     CS_Init();
 
-    /*Initialize required hardware peripherals for the ESP8266*/
+    // Initialize required hardware peripherals for the ESP8266
     MAP_GPIO_setAsPeripheralModuleFunctionInputPin(
             GPIO_PORT_P1, GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
     MAP_UART_initModule(EUSCI_A0_BASE, &UART0Config);
@@ -158,37 +139,32 @@ void initiate_wifi()
     MAP_UART_enableInterrupt(EUSCI_A2_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA2);
 
-    /**/
-//    commands_buffer = (char*) malloc(sizeof(http_req_getallcommands));
-
-    /*Reset GPIO of the ESP8266*/
+    //  Reset GPIO of the ESP8266
     GPIO_setAsOutputPin(GPIO_PORT_P6, GPIO_PIN1);
     MAP_Interrupt_enableMaster();
 
-    //ESP8266_Terminal();
-    /*Hard Reset ESP8266*/
+    //  Hard Reset ESP8266
     ESP8266_HardReset();
     __delay_cycles(48000000);
-    /*flush reset data, we do this because a lot of data received cannot be printed*/
+
+    //  Flush reset data, we do this because a lot of data received cannot be printed
     UART_Flush(EUSCI_A2_BASE);
     MSPrintf(EUSCI_A0_BASE, "Hard Reset\n\r");
 
-    /*Pointer to ESP8266 global buffer*/
+    //  Pointer to ESP8266 global buffer
     ESP8266_Data = ESP8266_GetBuffer();
 
-    /*Check UART connection to MSP432*/
+    //  Check UART connection to MSP432
     if (!ESP8266_CheckConnection())
     {
         MSPrintf(EUSCI_A0_BASE, "Failed MSP432 UART connection\r\n");
-        /*Trap MSP432 if failed connection*/
+        //  Trap MSP432 if failed connection
         while (1);
     }
     MSPrintf(EUSCI_A0_BASE, "Nice! We are connected to the MSP432\r\n\r\n");
-
-
     Delay(1000);
 
-    /*Connect to Access Point if necessary here*/
+    //  Connect to Access Point
     if (!ESP8266_ConnectToAP(SSID, PASSWORD))
     {
         MSPrintf(EUSCI_A0_BASE, "Waiting for connection\r\n\r\n");
@@ -206,7 +182,8 @@ void initiate_wifi()
     if (!ESP8266_EnableMultipleConnections(true))
     {
         MSPrintf(EUSCI_A0_BASE, "Failed to set multiple connections\r\n");
-        // Red Color means the WIFI is not connected
+        // Red color means the WIFI is not connected
+        // Green color means the WIFI is connected
         GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN2);
         GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN1);
         GPIO_toggleOutputOnPin(GPIO_PORT_P2, GPIO_PIN0);
@@ -225,40 +202,36 @@ void initiate_wifi()
 char *parseData()
 {
     char *ESP8266_Data = ESP8266_GetBuffer();
-
     int i, indexOfColon, payloadLength;
     char *command;
 
     MSPrintf(EUSCI_A0_BASE, "The ESP8266 data is %s\r\n", ESP8266_Data);
 
-    //GET THE PAYLOAD
+    //  Get the paylaod
     for (i = 0; ESP8266_Data[i] != '\0'; i++)
     {
-
         if (ESP8266_Data[i] == ':')
         {
             indexOfColon = i;
             break;
         }
     }
-    // Get the payload length
+
+    //  Get the payload length
     payloadLength = atoi(&ESP8266_Data[indexOfColon - 1]);
-//  Get the payload Length
     MSPrintf(EUSCI_A0_BASE, "%i\r\n", payloadLength);
 
-    //Dynamic Allocate Memory for char Array: command
-
-    // Dynamically allocate memory using calloc()
-//    command = (char*)calloc((payloadLength + 1), sizeof(char));
+    //  Dynamic Allocate Memory for char Array: command
     command = malloc(sizeof(char) * (payloadLength + 1));
-    // Extract each of the character to char* command
+
+    //  Extract each of the character to char* command
     for (i = 0; i < payloadLength; i++)
     {
         command[i] = ESP8266_Data[indexOfColon + 1 + i];
     }
-    // Very impt to add \0 at the end of string to indicate eng of string.
-    command[payloadLength] = '\0';
 
+    //  "\0" to indicate the end of string
+    command[payloadLength] = '\0';
     MSPrintf(EUSCI_A0_BASE, "The command is : %s\r\n", command);
     return command;
 }
