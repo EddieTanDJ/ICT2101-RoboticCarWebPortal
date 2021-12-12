@@ -51,7 +51,6 @@ npm init -y
 ```sh
 npm run test  
 ```
-<br />
-[![Watch the video](https://img.youtube.com/vi/kV2nuk3d0X0.jpg)](https://www.youtube.com/watch?v=kV2nuk3d0X0)
 
+Please kindly refer to the [WhiteBox Testing](https://www.youtube.com/watch?v=kV2nuk3d0X0) video. 
 
