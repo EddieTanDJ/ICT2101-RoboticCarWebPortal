@@ -23,18 +23,6 @@ pip install -r requirements.txt
 Ensure virtual environment (venv) is enabled before starting the project or installng dependencies. 
 ```venv-win\Scripts\Activate```. Ensure a .env file is present in the root folder with correct configurations to be able to connect to the database. The variables are as shown below.
 
-##.env
-The .env file will have the following variables. 
-```
-DEBUG=True
-SECRET_KEY=S3cr3t_K#Key
-DB_ENGINE=postgresql
-DB_NAME=appseed-flask
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=appseed
-DB_PASS=pass
-```
 ## Development Workflow
 ```master```: Only codes that are ready to deploy will be merged here.
 <br>
@@ -42,8 +30,10 @@ DB_PASS=pass
 
 <br />
 
-## System Test Cases
-[![Watch the video](https://img.youtube.com/vi/ay578-uKb1Y.jpg)](https://youtu.be/ay578-uKb1Y)
+## User Acceptance Test (UAT)
+Please kindly refer to the [UAT Video](https://www.youtube.com/watch?v=ay578-uKb1Y) for the system test cases.
+<br />
+[![UAT video](https://j.gifs.com/vQ9nDm.gif)](https://www.youtube.com/watch?v=ay578-uKb1Y)  
 <br />
 
 ## Start the Web Server
@@ -61,6 +51,7 @@ npm init -y
 ```sh
 npm run test  
 ```
+<br />
 [![Watch the video](https://img.youtube.com/vi/kV2nuk3d0X0.jpg)](https://www.youtube.com/watch?v=kV2nuk3d0X0)
 
 
