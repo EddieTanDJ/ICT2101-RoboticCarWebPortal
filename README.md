@@ -53,4 +53,7 @@ npm run test
 ```
 
 Please kindly refer to the [WhiteBox Testing](https://www.youtube.com/watch?v=kV2nuk3d0X0) video. 
+<br />
+[![White Box video](https://j.gifs.com/WPjx1W.gif)](https://www.youtube.cyouom/watch?v=kV2nuk3d0X0)  
+
 
